@@ -59,7 +59,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/alacritty/catppuccin/catppuccin-frappe.toml".source = ./alacritty/catppuccin/catppuccin-frappe.toml;
+    ".config/alacritty/catppuccin/catppuccin-mocha.toml".source = ./alacritty/catppuccin/catppuccin-mocha.toml;
   };
 
   # Home Manager can also manage your environment variables through
@@ -103,7 +103,7 @@
 
       settings = {
         import = [
-          "catppuccin/catppuccin-frappe.toml"
+          "~/.config/alacritty/catppuccin/catppuccin-mocha.toml"
         ];
 
         window = {
