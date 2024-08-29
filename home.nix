@@ -78,6 +78,10 @@
     TERMINAL = "alacritty";
   };
 
+  home.shellAliases = {
+    vim = "nvim";
+  };
+
   fonts.fontconfig.enable = true;
 
   # Let Home Manager install and manage itself.
