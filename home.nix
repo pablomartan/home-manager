@@ -59,6 +59,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config/alacritty/catppuccin/catppuccin-frappe.toml".source = ./alacritty/catppuccin/catppuccin-frappe.toml;
   };
 
   # Home Manager can also manage your environment variables through
@@ -73,12 +74,16 @@
   #  /etc/profiles/per-user/pablo/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
+    TERMINAL = "alacritty";
   };
+
+  fonts.fontconfig.enable = true;
 
   # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
+
     starship = {
       enable = true;
     };
@@ -87,6 +92,33 @@
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
+    };
+
+    alacritty = {
+      enable = true;
+
+      settings = {
+        import = [
+          "catppuccin/catppuccin-frappe.toml"
+        ];
+
+        window = {
+          padding = {
+            x = 0;
+            y = 0;
+          };
+          startup_mode = "Maximized";
+        };
+
+        font = {
+          normal = {family = "JetBrainsMono Nerd Font Mono";};
+          size = 12;
+        };
+
+        env = {
+          TERM = "xterm-256color";
+        };
+      };
     };
 
     tmux = {
@@ -109,8 +141,8 @@
         set -g prefix C-Space
         bind C-Space send-prefix
 
-        set -g default-terminal "screen-256color"
-        set-option -sa terminal-overrides ",xterm:Tc"
+        set -g default-terminal "xterm-256color"
+        set-option -ga terminal-overrides ",xterm-256color:Tc"
 
         set -g mouse on
 
