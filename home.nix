@@ -156,6 +156,7 @@
       shellAliases = {
         ls = "ls -lGh";
         v = "nvim";
+        mux = "tmuxinator";
       };
 
       shellGlobalAliases = {
