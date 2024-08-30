@@ -32,14 +32,13 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["JetBrainsMono" "FiraCode"];})
     neovim
     git
     tmuxinator
     pass
     gnupg
     fd
-    fzf
     pass
     ripgrep
     qmk
@@ -90,12 +89,78 @@
 
     starship = {
       enable = true;
+      enableZshIntegration = true;
+
+      settings = {
+        "$schema" = "https://starship.rs/config-schema.json";
+        scan_timeout = 10;
+
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[](bold red)";
+        };
+
+        palette = "catppuccin_mocha";
+
+        palettes = {
+          catppuccin_mocha = {
+            rosewater = "#f5e0dc";
+            flamingo = "#f2cdcd";
+            pink = "#f5c2e7";
+            mauve = "#cba6f7";
+            red = "#f38ba8";
+            maroon = "#eba0ac";
+            peach = "#fab387";
+            yellow = "#f9e2af";
+            green = "#a6e3a1";
+            teal = "#94e2d5";
+            sky = "#89dceb";
+            sapphire = "#74c7ec";
+            blue = "#89b4fa";
+            lavender = "#b4befe";
+            text = "#cdd6f4";
+            subtext1 = "#bac2de";
+            subtext0 = "#a6adc8";
+            overlay2 = "#9399b2";
+            overlay1 = "#7f849c";
+            overlay0 = "#6c7086";
+            surface2 = "#585b70";
+            surface1 = "#45475a";
+            surface0 = "#313244";
+            base = "#1e1e2e";
+            mantle = "#181825";
+            crust = "#11111b";
+          };
+        };
+      };
     };
 
     direnv = {
       enable = true;
       enableZshIntegration = true;
       nix-direnv.enable = true;
+    };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+
+      defaultCommand = "fd . --min-depth 1 --type f";
+      changeDirWidgetCommand = "fd --type d";
+      fileWidgetCommand = "fd . --min-depth 1 --type f";
+    };
+
+    zsh = {
+      enable = true;
+      autosuggestion.enable = true;
+      shellAliases = {
+        ls = "ls -lGh";
+        v = "nvim";
+      };
+
+      shellGlobalAliases = {
+        G = "| rg";
+      };
     };
 
     alacritty = {
@@ -115,8 +180,12 @@
         };
 
         font = {
-          normal = {family = "JetBrainsMono Nerd Font Mono";};
+          normal = {family = "FiraCode Nerd Font Mono";};
           size = 12;
+        };
+
+        window = {
+          option_as_alt = "OnlyLeft";
         };
 
         env = {
