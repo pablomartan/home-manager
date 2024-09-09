@@ -43,6 +43,7 @@
     ripgrep
     qmk
     pandoc
+    bup
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
