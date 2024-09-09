@@ -30,6 +30,7 @@
       # the path to your home.nix.
       modules = [
         ./home.nix
+        ./config.nix
         {
           nixpkgs.overlays = [
             (final: prev: {
