@@ -28,6 +28,7 @@
     qmk
     pandoc
     bup
+    nixgl.nixGLIntel
   ];
 
   home.file = {
