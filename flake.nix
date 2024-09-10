@@ -12,15 +12,17 @@
       url = "github:pablomartan/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     nixvim,
+    nixgl,
     ...
   }: let
-    system = "aarch64-darwin";
+    system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     homeConfigurations."pablo" = home-manager.lib.homeManagerConfiguration {
@@ -33,6 +35,7 @@
         ./config.nix
         {
           nixpkgs.overlays = [
+            nixgl.overlay
             (final: prev: {
               neovim = nixvim.packages.${system}.default;
             })
