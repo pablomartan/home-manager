@@ -28,7 +28,8 @@
     qmk
     pandoc
     bup
-    nixgl.nixGLIntel
+    # nixgl.nixGLIntel
+    ollama
   ];
 
   home.file = {
