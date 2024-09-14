@@ -30,6 +30,7 @@
     bup
     # nixgl.nixGLIntel
     ollama
+    wl-clipboard
   ];
 
   home.file = {
