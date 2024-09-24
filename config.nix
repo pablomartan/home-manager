@@ -33,6 +33,13 @@
     wl-clipboard
   ];
 
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
+  };
+
   home.file = {
     ".config/alacritty/catppuccin/catppuccin-mocha.toml".source = ./alacritty/catppuccin/catppuccin-mocha.toml;
   };
@@ -44,6 +51,7 @@
 
   home.shellAliases = {
     vim = "nvim";
+    ls = "ls -l --color=auto";
   };
 
   fonts.fontconfig.enable = true;
@@ -119,7 +127,6 @@
       enable = true;
       autosuggestion.enable = true;
       shellAliases = {
-        ls = "ls -lGh";
         v = "nvim";
         mux = "tmuxinator";
       };
