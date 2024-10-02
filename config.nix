@@ -33,6 +33,7 @@
     wl-clipboard
     autofirma
     errands
+    nextcloud-client
   ];
 
   dconf.settings = {
