@@ -32,6 +32,7 @@
     ollama
     wl-clipboard
     autofirma
+    errands
   ];
 
   dconf.settings = {
