@@ -31,6 +31,7 @@
     # nixgl.nixGLIntel
     ollama
     wl-clipboard
+    autofirma
   ];
 
   dconf.settings = {

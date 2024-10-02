@@ -12,6 +12,7 @@
       url = "github:pablomartan/nixvim";
     };
     nixgl.url = "github:nix-community/nixGL";
+    autofirma.url = "github:pablomartan/cliente-autofirma";
   };
 
   outputs = {
@@ -19,6 +20,7 @@
     home-manager,
     nixvim,
     nixgl,
+    autofirma,
     ...
   }: let
     system = "x86_64-linux";
@@ -37,6 +39,7 @@
             nixgl.overlay
             (final: prev: {
               neovim = nixvim.packages.${system}.default;
+              autofirma = autofirma.packages.${system}.default;
             })
           ];
         }
