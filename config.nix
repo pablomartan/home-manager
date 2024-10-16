@@ -63,6 +63,15 @@
   programs = {
     home-manager.enable = true;
 
+    gnome-shell = {
+      enable = true;
+      extensions = [
+        {
+          package = pkgs.gnomeExtensions.gsconnect;
+        }
+      ];
+    };
+
     starship = {
       enable = true;
       enableZshIntegration = true;
