@@ -28,20 +28,29 @@
     qmk
     pandoc
     bup
+    kup
     # nixgl.nixGLIntel
     ollama
-    wl-clipboard
     autofirma
-    errands
     nextcloud-client
   ];
 
-  dconf.settings = {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
-    };
-  };
+  #dconf.settings = {
+  #  "org/virt-manager/virt-manager/connections" = {
+  #    autoconnect = ["qemu:///system"];
+  #    uris = ["qemu:///system"];
+  #  };
+  #  "org/gnome/settings-daemon/plugins/media-keys" = {
+  #    custom-keybindings = [
+  #      "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+  #    ];
+  #  };
+  #  "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+  #    name = "Alacritty";
+  #    command = "alacritty -e tmux";
+  #    binding = "<Super>Return";
+  #  };
+  #};
 
   home.file = {
     ".config/alacritty/catppuccin/catppuccin-mocha.toml".source = ./alacritty/catppuccin/catppuccin-mocha.toml;
@@ -63,14 +72,14 @@
   programs = {
     home-manager.enable = true;
 
-    gnome-shell = {
-      enable = true;
-      extensions = [
-        {
-          package = pkgs.gnomeExtensions.gsconnect;
-        }
-      ];
-    };
+    #gnome-shell = {
+    #  enable = true;
+    #  extensions = [
+    #    {
+    #      package = pkgs.gnomeExtensions.gsconnect;
+    #    }
+    #  ];
+    #};
 
     starship = {
       enable = true;
