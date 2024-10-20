@@ -1,4 +1,22 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  nixgl = pkgs.nixgl;
+  nixGLWrap = pkg: let
+    bins = "${pkg}/bin";
+  in
+    pkgs.buildEnv {
+      name = "nixGL-${pkg.name}";
+      paths =
+        [pkg]
+        ++ (map
+          (bin:
+            pkgs.hiPrio (
+              pkgs.writeShellScriptBin bin ''
+                exec -a "$0" "${nixgl.nixGLIntel}/bin/nixGLIntel" "${bins}/${bin}" "$@"
+              ''
+            ))
+          (builtins.attrNames (builtins.readDir bins)));
+    };
+in {
   home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -28,7 +46,6 @@
     pandoc
     bup
     kup
-    # nixgl.nixGLIntel
     ollama
     autofirma
     nextcloud-client
@@ -158,6 +175,8 @@
 
     alacritty = {
       enable = true;
+
+      package = nixGLWrap pkgs.alacritty;
 
       settings = {
         import = [
