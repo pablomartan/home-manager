@@ -299,6 +299,7 @@ in {
 
       nativeMessagingHosts = with pkgs; [
         browserpass
+        tridactyl-native
       ];
     };
 
