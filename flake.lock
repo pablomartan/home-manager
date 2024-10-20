@@ -26,15 +26,15 @@
       "locked": {
         "lastModified": 1729239167,
         "narHash": "sha256-FMEoL3VlLeLalyHVRK7CQmBUsTHxP3OHwapyv6JZbbM=",
-        "ref": "refs/heads/master",
+        "owner": "pablomartan",
+        "repo": "custom-nix-packages",
         "rev": "2eaec6068303067c26c28430c235a8ff3c0d4c05",
-        "revCount": 4,
-        "type": "git",
-        "url": "file:///home/pablo/Documentos/Programas/flakes/my-packages"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/pablo/Documentos/Programas/flakes/my-packages"
+        "owner": "pablomartan",
+        "repo": "custom-nix-packages",
+        "type": "github"
       }
     },
     "devshell": {
