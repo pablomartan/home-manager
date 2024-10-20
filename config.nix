@@ -38,9 +38,7 @@ in {
     neovim
     git
     tmuxinator
-    pass
     fd
-    pass
     ripgrep
     qmk
     pandoc
@@ -311,6 +309,12 @@ in {
         "firefox"
         "chromium"
       ];
+    };
+
+    password-store = {
+      enable = true;
+
+      package = pkgs.pass-wayland;
     };
   };
 
