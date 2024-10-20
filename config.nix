@@ -43,7 +43,7 @@ in {
     qmk
     pandoc
     bup
-    kup
+    # kup
     ollama
     autofirma
     nextcloud-client
