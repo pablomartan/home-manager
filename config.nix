@@ -21,7 +21,6 @@
     git
     tmuxinator
     pass
-    gnupg
     fd
     pass
     ripgrep
@@ -265,12 +264,23 @@
       };
     };
 
+    gpg.enable = true;
+
     browserpass = {
       enable = true;
       browsers = [
         "firefox"
         "chromium"
       ];
+    };
+  };
+
+  services = {
+    gpg-agent = {
+      enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+      pinentryPackage = pkgs.pinentry-qt;
     };
   };
 }
