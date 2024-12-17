@@ -41,6 +41,7 @@ in {
     fd
     ripgrep
     qmk
+    qmk-udev-rules
     pandoc
     bup
     ollama
