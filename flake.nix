@@ -12,7 +12,6 @@
       url = "github:pablomartan/nixvim";
     };
     nixgl.url = "github:nix-community/nixGL";
-    autofirma.url = "github:pablomartan/cliente-autofirma";
     custom-packages.url = "github:pablomartan/custom-nix-packages";
   };
 

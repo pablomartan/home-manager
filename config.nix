@@ -43,28 +43,27 @@ in {
     qmk
     pandoc
     bup
-    # kup
     ollama
     autofirma
     nextcloud-client
   ];
 
-  #dconf.settings = {
-  #  "org/virt-manager/virt-manager/connections" = {
-  #    autoconnect = ["qemu:///system"];
-  #    uris = ["qemu:///system"];
-  #  };
-  #  "org/gnome/settings-daemon/plugins/media-keys" = {
-  #    custom-keybindings = [
-  #      "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-  #    ];
-  #  };
-  #  "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-  #    name = "Alacritty";
-  #    command = "alacritty -e tmux";
-  #    binding = "<Super>Return";
-  #  };
-  #};
+  dconf.settings = {
+    #  "org/virt-manager/virt-manager/connections" = {
+    #    autoconnect = ["qemu:///system"];
+    #    uris = ["qemu:///system"];
+    #  };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      name = "Alacritty";
+      command = "alacritty";
+      binding = "<Super>Return";
+    };
+  };
 
   home.file = {
     ".config/alacritty/catppuccin/catppuccin-mocha.toml".source = ./alacritty/catppuccin/catppuccin-mocha.toml;
@@ -86,14 +85,14 @@ in {
   programs = {
     home-manager.enable = true;
 
-    #gnome-shell = {
-    #  enable = true;
-    #  extensions = [
-    #    {
-    #      package = pkgs.gnomeExtensions.gsconnect;
-    #    }
-    #  ];
-    #};
+    gnome-shell = {
+      enable = true;
+      extensions = [
+        {
+          package = pkgs.gnomeExtensions.gsconnect;
+        }
+      ];
+    };
 
     starship = {
       enable = true;
@@ -323,7 +322,7 @@ in {
       enable = true;
       enableZshIntegration = true;
       enableBashIntegration = true;
-      pinentryPackage = pkgs.pinentry-qt;
+      pinentryPackage = pkgs.pinentry-gnome3;
     };
   };
 }
