@@ -47,6 +47,7 @@ in {
     ollama
     autofirma
     nextcloud-client
+    gnome-frog
   ];
 
   dconf.settings = {
