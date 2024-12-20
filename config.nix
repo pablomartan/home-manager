@@ -56,6 +56,9 @@ in {
     #    autoconnect = ["qemu:///system"];
     #    uris = ["qemu:///system"];
     #  };
+    "org/gnome/desktop/peripherals/trackball" = {
+      scroll-wheel-emulation-button = 9;
+    };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
