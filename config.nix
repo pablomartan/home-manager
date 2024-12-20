@@ -48,6 +48,7 @@ in {
     autofirma
     nextcloud-client
     gnome-frog
+    wl-clipboard
   ];
 
   dconf.settings = {
