@@ -312,6 +312,7 @@ in {
       enable = true;
       browsers = [
         "firefox"
+        "librewolf"
         "chromium"
       ];
     };
