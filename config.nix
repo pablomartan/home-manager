@@ -182,7 +182,7 @@ in {
       package = nixGLWrap pkgs.alacritty;
 
       settings = {
-        import = [
+        general.import = [
           "~/.config/alacritty/catppuccin/catppuccin-mocha.toml"
         ];
 
