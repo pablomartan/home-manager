@@ -51,6 +51,8 @@ in {
     wl-clipboard
     # for gpg pinentry
     gcr
+    gnome-shell-extensions
+    gnome-extension-manager
   ];
 
   dconf.settings = {
