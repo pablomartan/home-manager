@@ -53,6 +53,7 @@ in {
     gcr
     gnome-shell-extensions
     gnome-extension-manager
+    firefox
   ];
 
   dconf.settings = {
@@ -259,6 +260,8 @@ in {
 
     firefox = {
       enable = true;
+
+      package = pkgs.librewolf;
 
       policies = {
         DisableTelemetry = true;
