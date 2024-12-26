@@ -54,6 +54,7 @@ in {
     gnome-shell-extensions
     gnome-extension-manager
     firefox
+    iamb
   ];
 
   dconf.settings = {
@@ -78,6 +79,7 @@ in {
 
   home.file = {
     ".config/alacritty/catppuccin/catppuccin-mocha.toml".source = ./alacritty/catppuccin/catppuccin-mocha.toml;
+    ".config/iamb/config.toml".source = ./iamb/config.toml;
   };
 
   home.sessionVariables = {
