@@ -49,6 +49,8 @@ in {
     nextcloud-client
     gnome-frog
     wl-clipboard
+    # for gpg pinentry
+    gcr
   ];
 
   dconf.settings = {
