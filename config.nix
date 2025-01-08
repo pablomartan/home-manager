@@ -40,27 +40,15 @@ in {
     tmuxinator
     fd
     ripgrep
-    qmk
-    qmk-udev-rules
-    pandoc
-    bup
-    ollama
-    autofirma
-    nextcloud-client
     gnome-frog
     wl-clipboard
     # for gpg pinentry
     gcr
     gnome-shell-extensions
     gnome-extension-manager
-    firefox
   ];
 
   dconf.settings = {
-    #  "org/virt-manager/virt-manager/connections" = {
-    #    autoconnect = ["qemu:///system"];
-    #    uris = ["qemu:///system"];
-    #  };
     "org/gnome/desktop/peripherals/trackball" = {
       scroll-wheel-emulation-button = 9;
     };
@@ -78,7 +66,6 @@ in {
 
   home.file = {
     ".config/alacritty/catppuccin/catppuccin-mocha.toml".source = ./alacritty/catppuccin/catppuccin-mocha.toml;
-    ".config/iamb/config.toml".source = ./iamb/config.toml;
   };
 
   home.sessionVariables = {
@@ -96,15 +83,6 @@ in {
   # Let Home Manager install and manage itself.
   programs = {
     home-manager.enable = true;
-
-    gnome-shell = {
-      enable = true;
-      extensions = [
-        {
-          package = pkgs.gnomeExtensions.gsconnect;
-        }
-      ];
-    };
 
     starship = {
       enable = true;
@@ -262,8 +240,6 @@ in {
     firefox = {
       enable = true;
 
-      package = pkgs.librewolf;
-
       policies = {
         DisableTelemetry = true;
         DisableFirefoxStudies = true;
@@ -310,7 +286,6 @@ in {
 
       nativeMessagingHosts = with pkgs; [
         browserpass
-        tridactyl-native
       ];
     };
 
@@ -320,7 +295,6 @@ in {
       enable = true;
       browsers = [
         "firefox"
-        "librewolf"
         "chromium"
       ];
     };
