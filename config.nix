@@ -54,7 +54,6 @@ in {
     gnome-shell-extensions
     gnome-extension-manager
     firefox
-    iamb
   ];
 
   dconf.settings = {
