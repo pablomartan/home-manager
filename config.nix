@@ -55,6 +55,7 @@ in {
     gnome-extension-manager
     firefox
     iamb
+    nixgl.nixGLIntel
   ];
 
   dconf.settings = {
