@@ -58,10 +58,10 @@ in {
   ];
 
   dconf.settings = {
-    #  "org/virt-manager/virt-manager/connections" = {
-    #    autoconnect = ["qemu:///system"];
-    #    uris = ["qemu:///system"];
-    #  };
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
     "org/gnome/desktop/peripherals/trackball" = {
       scroll-wheel-emulation-button = 9;
     };
