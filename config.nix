@@ -176,6 +176,7 @@ in {
       shellAliases = {
         v = "nvim";
         mux = "tmuxinator";
+        sudo = "sudo env PATH=$PATH";
       };
 
       shellGlobalAliases = {
