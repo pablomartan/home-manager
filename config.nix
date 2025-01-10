@@ -20,7 +20,6 @@ in {
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["FiraCode"];})
     neovim
-    git
     tmuxinator
     fd
     ripgrep
