@@ -56,6 +56,8 @@ in {
     firefox
     iamb
     nixgl.nixGLIntel
+    yt-dlp
+    mpv
   ];
 
   dconf.settings = {
