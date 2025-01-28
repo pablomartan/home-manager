@@ -328,6 +328,18 @@ in {
       ];
     };
 
+    chromium = {
+      enable = true;
+      extensions = [
+        # ublock-origin
+        {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";}
+        # browserpass
+        {id = "naepdomgkenhinolocfifgehidddafch";}
+        # vimium
+        {id = "dbepggeogbaibhgnhhndojpepiihcmeb";}
+      ];
+    };
+
     password-store = {
       enable = true;
 
