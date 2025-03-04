@@ -36,6 +36,7 @@ in {
     # '')
     (nerdfonts.override {fonts = ["JetBrainsMono" "FiraCode"];})
     neovim
+    emacs
     git
     tmuxinator
     fd

@@ -41,6 +41,25 @@
         "type": "github"
       }
     },
+    "emacs": {
+      "inputs": {
+        "nix-emacs": "nix-emacs",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1741100784,
+        "narHash": "sha256-9Wb5mFgQIhDd+XcF1ZL2yC2caB/V+DGr8fV2QlN15Pk=",
+        "owner": "pablomartan",
+        "repo": "emacs-config",
+        "rev": "d655017cd891d513f57c28b7f4086a8c2050f95f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pablomartan",
+        "repo": "emacs-config",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1696426674,
@@ -249,10 +268,32 @@
         "type": "github"
       }
     },
+    "nix-emacs": {
+      "inputs": {
+        "nixpkgs": [
+          "emacs",
+          "nixpkgs"
+        ],
+        "nixpkgs-stable": "nixpkgs-stable"
+      },
+      "locked": {
+        "lastModified": 1741079649,
+        "narHash": "sha256-eaJaCxvqKklKAPfxsRzjpNcMTxCMt8bz3BfYBn+gukw=",
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "rev": "55019a35f027fca211caff7ef7a7a870e82ceec8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "emacs-overlay",
+        "type": "github"
+      }
+    },
     "nixgl": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1713543440,
@@ -296,6 +337,22 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/a5d394176e64ab29c852d03346c1fc9b0b7d33eb.tar.gz"
       }
     },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1740932899,
+        "narHash": "sha256-F0qDu2egq18M3edJwEOAE+D+VQ+yESK6YWPRQBfOqq8=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1546c45c538633ae40b93e2d14e0bb6fd8f13347",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1739802090,
@@ -313,6 +370,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1740932899,
+        "narHash": "sha256-F0qDu2egq18M3edJwEOAE+D+VQ+yESK6YWPRQBfOqq8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1546c45c538633ae40b93e2d14e0bb6fd8f13347",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-24.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1660551188,
         "narHash": "sha256-a1LARMMYQ8DPx1BgoI/UN4bXe12hhZkCNqdxNi6uS0g=",
         "owner": "nixos",
@@ -326,13 +399,13 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
-        "lastModified": 1739624908,
-        "narHash": "sha256-f84lBmLl4tkDp1ZU5LBTSFzlxXP4926DVW3KnXrke10=",
+        "lastModified": 1740932899,
+        "narHash": "sha256-F0qDu2egq18M3edJwEOAE+D+VQ+yESK6YWPRQBfOqq8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a60651b217d2e529729cbc7d989c19f3941b9250",
+        "rev": "1546c45c538633ae40b93e2d14e0bb6fd8f13347",
         "type": "github"
       },
       "original": {
@@ -342,7 +415,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_5": {
       "locked": {
         "lastModified": 1727161591,
         "narHash": "sha256-pRL955PV6PiuTpaIeBMAbNkHnT3mtiOAlij+rB/ii54=",
@@ -360,7 +433,7 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "nixvim": "nixvim_2"
       },
       "locked": {
@@ -432,9 +505,10 @@
     "root": {
       "inputs": {
         "custom-packages": "custom-packages",
+        "emacs": "emacs",
         "home-manager": "home-manager",
         "nixgl": "nixgl",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_4",
         "nixvim": "nixvim"
       }
     },

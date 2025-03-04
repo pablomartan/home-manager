@@ -11,6 +11,7 @@
     nixvim = {
       url = "github:pablomartan/nixvim";
     };
+    emacs.url = "github:pablomartan/emacs-config";
     nixgl.url = "github:nix-community/nixGL";
     custom-packages.url = "github:pablomartan/custom-nix-packages";
   };
@@ -19,6 +20,7 @@
     nixpkgs,
     home-manager,
     nixvim,
+    emacs,
     nixgl,
     custom-packages,
     ...
@@ -39,6 +41,7 @@
             nixgl.overlay
             (final: prev: {
               neovim = nixvim.packages.${system}.default;
+              emacs = emacs.packages.${system}.default;
               autofirma = custom-packages.packages.${system}.autofirma;
               catapult = custom-packages.packages.${system}.catapult;
             })
