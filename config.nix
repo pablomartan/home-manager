@@ -34,7 +34,7 @@ in {
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    (nerdfonts.override {fonts = ["JetBrainsMono" "FiraCode"];})
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
     neovim
     emacs
     git
@@ -206,8 +206,8 @@ in {
         };
 
         font = {
-          normal = {family = "FiraCode Nerd Font Mono";};
-          size = 12;
+          normal = {family = "JetBrainsMono Nerd Font";};
+          size = 11;
         };
 
         window = {
