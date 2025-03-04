@@ -59,6 +59,7 @@ in {
     nixgl.nixGLIntel
     yt-dlp
     mpv
+    freetube
   ];
 
   dconf.settings = {
