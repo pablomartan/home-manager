@@ -99,11 +99,6 @@ in {
     TERMINAL = "alacritty";
   };
 
-  home.shellAliases = {
-    vim = "nvim";
-    ls = "ls -l --color=auto";
-  };
-
   fonts.fontconfig.enable = true;
 
   # Let Home Manager install and manage itself.
@@ -177,7 +172,8 @@ in {
       enable = true;
       autosuggestion.enable = true;
       shellAliases = {
-        v = "nvim";
+        vim = "nvim";
+        ls = "ls -l --color=auto";
         mux = "tmuxinator";
         sudo = "sudo env PATH=$PATH";
       };
@@ -352,6 +348,8 @@ in {
       enable = true;
       extensions = [{package = pkgs.gnomeExtensions.gsconnect;}];
     };
+
+    bash.enable = true;
   };
 
   services = {
