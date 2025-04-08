@@ -60,6 +60,7 @@ in {
     yt-dlp
     mpv
     freetube
+    foliate
   ];
 
   dconf.settings = {
