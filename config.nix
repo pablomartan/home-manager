@@ -18,7 +18,7 @@
     };
 in {
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode"];})
+    (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
     neovim
     tmuxinator
     fd
@@ -27,6 +27,7 @@ in {
     # for gpg pinentry
     gcr
     drawing
+    nixgl.nixGLIntel
   ];
 
   dconf.settings = {
@@ -134,6 +135,7 @@ in {
       shellAliases = {
         v = "nvim";
         mux = "tmuxinator";
+        sudo = "sudo env PATH=$PATH";
       };
 
       shellGlobalAliases = {
@@ -160,8 +162,8 @@ in {
         };
 
         font = {
-          normal = {family = "FiraCode Nerd Font Mono";};
-          size = 12;
+          normal = {family = "JetBrainsMono Nerd Font";};
+          size = 11;
         };
 
         window = {
