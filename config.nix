@@ -61,6 +61,7 @@ in {
     mpv
     freetube
     foliate
+    gimp
   ];
 
   dconf.settings = {
