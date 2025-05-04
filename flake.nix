@@ -11,7 +11,7 @@
     nixvim = {
       url = "github:pablomartan/nixvim";
     };
-    emacs.url = "github:pablomartan/emacs-config";
+    emacs.url = "github:pablomartan/emacs-config?ref=home";
     nixgl.url = "github:nix-community/nixGL";
     custom-packages.url = "github:pablomartan/custom-nix-packages";
   };
