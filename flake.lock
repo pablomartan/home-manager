@@ -1,28 +1,9 @@
 {
   "nodes": {
-    "custom-packages": {
-      "inputs": {
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
-      },
-      "locked": {
-        "lastModified": 1743453175,
-        "narHash": "sha256-G/C6yRBMUAPAVNTUnmiPE2EnRP4VaRql4cPghLnulFs=",
-        "owner": "pablomartan",
-        "repo": "custom-nix-packages",
-        "rev": "5a4971bbedd281cf18f2692f8650ba0ff71a43ce",
-        "type": "github"
-      },
-      "original": {
-        "owner": "pablomartan",
-        "repo": "custom-nix-packages",
-        "type": "github"
-      }
-    },
     "emacs": {
       "inputs": {
         "nix-emacs": "nix-emacs",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1745780330,
@@ -188,7 +169,7 @@
     "nixgl": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1713543440,
@@ -206,11 +187,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1739624908,
-        "narHash": "sha256-f84lBmLl4tkDp1ZU5LBTSFzlxXP4926DVW3KnXrke10=",
+        "lastModified": 1740932899,
+        "narHash": "sha256-F0qDu2egq18M3edJwEOAE+D+VQ+yESK6YWPRQBfOqq8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a60651b217d2e529729cbc7d989c19f3941b9250",
+        "rev": "1546c45c538633ae40b93e2d14e0bb6fd8f13347",
         "type": "github"
       },
       "original": {
@@ -251,38 +232,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-unstable": {
-      "locked": {
-        "lastModified": 1739802090,
-        "narHash": "sha256-eFvA0IPN+NaWr2YwDS6CwXpqKa6LiYicVlMou096ibM=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "c47b0e6750eedde5d485c7aca8af957d9ead98b2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1740932899,
-        "narHash": "sha256-F0qDu2egq18M3edJwEOAE+D+VQ+yESK6YWPRQBfOqq8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "1546c45c538633ae40b93e2d14e0bb6fd8f13347",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.11",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
       "locked": {
         "lastModified": 1660551188,
         "narHash": "sha256-a1LARMMYQ8DPx1BgoI/UN4bXe12hhZkCNqdxNi6uS0g=",
@@ -297,13 +247,13 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
-        "lastModified": 1746957726,
-        "narHash": "sha256-k9ut1LSfHCr0AW82ttEQzXVCqmyWVA5+SHJkS5ID/Jo=",
+        "lastModified": 1747209494,
+        "narHash": "sha256-fLise+ys+bpyjuUUkbwqo5W/UyIELvRz9lPBPoB0fbM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a39ed32a651fdee6842ec930761e31d1f242cb94",
+        "rev": "5d736263df906c5da72ab0f372427814de2f52f8",
         "type": "github"
       },
       "original": {
@@ -313,7 +263,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1741784025,
         "narHash": "sha256-aaJR5mb2SxAXOB0jvQshM9sVGBjSU3FH+zVp69b0Jeo=",
@@ -331,15 +281,15 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_4",
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1742764900,
-        "narHash": "sha256-QEYqJtbk/0vAIY+n3/Pce4N+f83N/baKTq1MIvrJc2A=",
+        "lastModified": 1747145188,
+        "narHash": "sha256-ysE91UWNq2ib3StpXG7P8aHKSeStD3cH6YW4+/nkLjA=",
         "owner": "pablomartan",
         "repo": "nixvim",
-        "rev": "99ddd5398ba0081a92fa18f6d672f6d5693196b4",
+        "rev": "fee7dc0b6638b542f1f2dadf2edc4bbe8f17e2c8",
         "type": "github"
       },
       "original": {
@@ -397,11 +347,10 @@
     },
     "root": {
       "inputs": {
-        "custom-packages": "custom-packages",
         "emacs": "emacs",
         "home-manager": "home-manager",
         "nixgl": "nixgl",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim"
       }
     },

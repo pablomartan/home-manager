@@ -13,7 +13,6 @@
     };
     emacs.url = "github:pablomartan/emacs-config?ref=home";
     nixgl.url = "github:nix-community/nixGL";
-    custom-packages.url = "github:pablomartan/custom-nix-packages";
   };
 
   outputs = {
@@ -22,7 +21,6 @@
     nixvim,
     emacs,
     nixgl,
-    custom-packages,
     ...
   }: let
     system = "x86_64-linux";
@@ -42,8 +40,6 @@
             (final: prev: {
               neovim = nixvim.packages.${system}.default;
               emacs = emacs.packages.${system}.default;
-              autofirma = custom-packages.packages.${system}.autofirma;
-              catapult = custom-packages.packages.${system}.catapult;
             })
           ];
         }

@@ -46,7 +46,6 @@ in {
     pandoc
     bup
     ollama
-    autofirma
     nextcloud-client
     gnome-frog
     wl-clipboard
