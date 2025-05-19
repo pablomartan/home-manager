@@ -279,7 +279,15 @@ in {
             installation_mode = "force_installed";
           };
           "{b7f9d2cd-d772-4302-8c3f-eb941af36f76}" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy_redirect/latest.xpi";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-redirect/latest.xpi";
+            installation_mode = "force_installed";
+          };
+          "tridactyl.vim@cmcaine.co.uk" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/tridactyl-vim/latest.xpi";
+            installation_mode = "force_installed";
+          };
+          "browserpass@maximbaz.com" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/browserpass-ce/latest.xpi";
             installation_mode = "force_installed";
           };
         };
@@ -332,7 +340,7 @@ in {
     };
 
     chromium = {
-      enable = true;
+      enable = false;
       extensions = [
         # ublock-origin
         {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";}
