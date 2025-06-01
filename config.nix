@@ -34,7 +34,7 @@ in {
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    nerd-fonts.jetbrains-mono
     neovim
     emacs
     git
@@ -299,8 +299,8 @@ in {
           name = "default";
           isDefault = true;
           settings = {
-            "browser.search.defaultenginename" = "DuckDuckGo";
-            "browser.search.order.1" = "DuckDuckGo";
+            "browser.search.defaultenginename" = "ddg";
+            "browser.search.order.1" = "ddg";
 
             "signon.rememberSignons" = false;
             "widget.use-xdg-desktop-portal.file-picker" = 1;
@@ -316,8 +316,8 @@ in {
 
           search = {
             force = true;
-            default = "DuckDuckGo";
-            order = ["DuckDuckGo"];
+            default = "ddg";
+            order = ["ddg"];
           };
         };
       };
@@ -370,7 +370,7 @@ in {
       enable = true;
       enableZshIntegration = true;
       enableBashIntegration = true;
-      pinentryPackage = pkgs.pinentry-gnome3;
+      pinentry.package = pkgs.pinentry-gnome3;
     };
   };
 }

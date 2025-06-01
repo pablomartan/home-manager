@@ -10,9 +10,13 @@
     };
     nixvim = {
       url = "github:pablomartan/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs.url = "github:pablomartan/emacs-config?ref=home";
-    nixgl.url = "github:nix-community/nixGL";
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
