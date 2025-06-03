@@ -18,12 +18,14 @@
     };
 in {
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+    nerd-fonts.jetbrains-mono
     neovim
+    emacs
     tmuxinator
     fd
     ripgrep
     wl-clipboard
+    pandoc
     # for gpg pinentry
     gcr
     drawing
@@ -46,6 +48,13 @@ in {
     };
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 22;
+  };
+
   home.file = {
     ".config/alacritty/catppuccin/catppuccin-mocha.toml".source = ./alacritty/catppuccin/catppuccin-mocha.toml;
   };
@@ -53,11 +62,6 @@ in {
   home.sessionVariables = {
     EDITOR = "nvim";
     TERMINAL = "alacritty";
-  };
-
-  home.shellAliases = {
-    vim = "nvim";
-    ls = "ls -l --color=auto";
   };
 
   fonts.fontconfig.enable = true;
@@ -133,7 +137,8 @@ in {
       enable = true;
       autosuggestion.enable = true;
       shellAliases = {
-        v = "nvim";
+        vim = "nvim";
+        ls = "ls -l --color=auto";
         mux = "tmuxinator";
         sudo = "sudo env PATH=$PATH";
       };
@@ -235,6 +240,18 @@ in {
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             installation_mode = "force_installed";
           };
+          "{b7f9d2cd-d772-4302-8c3f-eb941af36f76}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-redirect/latest.xpi";
+            installation_mode = "force_installed";
+          };
+          "tridactyl.vim@cmcaine.co.uk" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/tridactyl-vim/latest.xpi";
+            installation_mode = "force_installed";
+          };
+          "browserpass@maximbaz.com" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/browserpass-ce/latest.xpi";
+            installation_mode = "force_installed";
+          };
         };
       };
 
@@ -244,8 +261,8 @@ in {
           name = "default";
           isDefault = true;
           settings = {
-            "browser.search.defaultenginename" = "DuckDuckGo";
-            "browser.search.order.1" = "DuckDuckGo";
+            "browser.search.defaultenginename" = "ddg";
+            "browser.search.order.1" = "ddg";
 
             "signon.rememberSignons" = false;
             "widget.use-xdg-desktop-portal.file-picker" = 1;
@@ -261,8 +278,8 @@ in {
 
           search = {
             force = true;
-            default = "DuckDuckGo";
-            order = ["DuckDuckGo"];
+            default = "ddg";
+            order = ["ddg"];
           };
         };
       };
@@ -282,11 +299,30 @@ in {
       ];
     };
 
+    chromium = {
+      enable = false;
+      extensions = [
+        # ublock-origin
+        {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";}
+        # browserpass
+        {id = "naepdomgkenhinolocfifgehidddafch";}
+        # vimium
+        {id = "dbepggeogbaibhgnhhndojpepiihcmeb";}
+      ];
+    };
+
     password-store = {
       enable = true;
 
       package = pkgs.pass-wayland;
     };
+
+    gnome-shell = {
+      enable = true;
+      extensions = [{package = pkgs.gnomeExtensions.gsconnect;}];
+    };
+
+    bash.enable = true;
   };
 
   services = {
@@ -294,7 +330,7 @@ in {
       enable = true;
       enableZshIntegration = true;
       enableBashIntegration = true;
-      pinentryPackage = pkgs.pinentry-gnome3;
+      pinentry.package = pkgs.pinentry-gnome3;
     };
   };
 }
