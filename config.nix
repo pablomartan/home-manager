@@ -38,7 +38,7 @@ in {
     neovim
     emacs
     git
-    tmuxinator
+    # tmuxinator
     fd
     ripgrep
     qmk
@@ -220,10 +220,26 @@ in {
     tmux = {
       enable = true;
 
+      baseIndex = 1;
+
+      mouse = true;
+
+      prefix = "C-Space";
+
+      keyMode = "vi";
+
+      terminal = "xterm-256color";
+
+      tmuxinator.enable = true;
+
+      sensibleOnTop = true;
+
       plugins = with pkgs; [
+        tmuxPlugins.sensible
         {
           plugin = tmuxPlugins.catppuccin;
           extraConfig = ''
+            set -g @catppuccin_window_status_style "rounded"
             set -g @catppuccin_status_modules_right "directory"
             set -g @catppuccin_status_modules_left "session"
             set -g @catppuccin_window_current_text "#{window_name}"
@@ -233,22 +249,10 @@ in {
       ];
 
       extraConfig = ''
-        unbind C-b
-        set -g prefix C-Space
-        bind C-Space send-prefix
-
-        set -g default-terminal "xterm-256color"
+        # set -g default-terminal "xterm-256color"
         set-option -ga terminal-overrides ",xterm-256color:Tc"
 
-        set -g mouse on
-
-        set -g base-index 1
-        set -g pane-base-index 1
-        set-window-option -g pane-base-index 1
         set-option -g renumber-windows on
-
-        # set vi-mode
-        set-window-option -g mode-keys vi
 
         # keybindings
         bind-key -T copy-mode-vi v send-keys -X begin-selection
