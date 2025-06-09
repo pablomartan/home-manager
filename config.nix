@@ -305,7 +305,7 @@ in {
     };
 
     chromium = {
-      enable = false;
+      enable = true;
       extensions = [
         # ublock-origin
         {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";}
