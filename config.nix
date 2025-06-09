@@ -134,7 +134,6 @@ in {
         vim = "nvim";
         ls = "ls -l --color=auto";
         mux = "tmuxinator";
-        sudo = "sudo env PATH=$PATH";
       };
 
       shellGlobalAliases = {
@@ -320,7 +319,7 @@ in {
       extensions = [{package = pkgs.gnomeExtensions.gsconnect;}];
     };
 
-    bash.enable = true;
+    bash.enable = false;
   };
 
   services = {
