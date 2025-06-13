@@ -3,28 +3,35 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-prev.url = "github:nixos/nixpkgs/nixos-24.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:pablomartan/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl.url = "github:nix-community/nixGL";
-    custom-packages.url = "github:pablomartan/custom-nix-packages";
+    emacs.url = "github:pablomartan/emacs-config?ref=home";
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     nixvim,
+    emacs,
     nixgl,
-    custom-packages,
+    nixpkgs-prev,
     ...
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    prev-pkgs = nixpkgs-prev.legacyPackages.${system};
   in {
     homeConfigurations."pablo" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
@@ -39,8 +46,8 @@
             nixgl.overlay
             (final: prev: {
               neovim = nixvim.packages.${system}.default;
-              autofirma = custom-packages.packages.${system}.autofirma;
-              catapult = custom-packages.packages.${system}.catapult;
+              emacs = emacs.packages.${system}.default;
+              tmuxPlugins = prev-pkgs.tmuxPlugins;
             })
           ];
         }
