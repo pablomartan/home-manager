@@ -18,22 +18,6 @@
     };
 in {
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
     nerd-fonts.jetbrains-mono
     neovim
     emacs
@@ -41,12 +25,12 @@ in {
     # tmuxinator
     fd
     ripgrep
-    gnome-frog
     wl-clipboard
+    pandoc
     # for gpg pinentry
     gcr
-    gnome-shell-extensions
-    gnome-extension-manager
+    drawing
+    nixgl.nixGLIntel
   ];
 
   dconf.settings = {
@@ -63,13 +47,6 @@ in {
       command = "alacritty";
       binding = "<Super>Return";
     };
-  };
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.adwaita-icon-theme;
-    name = "Adwaita";
-    size = 22;
   };
 
   home.file = {
@@ -157,7 +134,6 @@ in {
         vim = "nvim";
         ls = "ls -l --color=auto";
         mux = "tmuxinator";
-        sudo = "sudo env PATH=$PATH";
       };
 
       shellGlobalAliases = {
@@ -337,7 +313,12 @@ in {
       package = pkgs.pass-wayland;
     };
 
-    bash.enable = true;
+    gnome-shell = {
+      enable = true;
+      extensions = [{package = pkgs.gnomeExtensions.gsconnect;}];
+    };
+
+    bash.enable = false;
   };
 
   services = {
