@@ -68,18 +68,39 @@ in {
       autoconnect = ["qemu:///system"];
       uris = ["qemu:///system"];
     };
+
     "org/gnome/desktop/peripherals/trackball" = {
       scroll-wheel-emulation-button = 9;
     };
+
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
       ];
     };
+
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "Alacritty";
       command = "alacritty";
       binding = "<Super>Return";
+    };
+
+    "org/gnome/desktopwm/preferences" = {
+      num-workspaces = 4;
+    };
+
+    "org/gnome/desktop/wm/keybindings" = {
+      switch-to-workspace-1 = ["<Super>1"];
+      switch-to-workspace-2 = ["<Super>2"];
+      switch-to-workspace-3 = ["<Super>3"];
+      switch-to-workspace-4 = ["<Super>4"];
+    };
+
+    "org/gnome/shell/keybindings" = {
+      switch-to-application-1 = [];
+      switch-to-application-2 = [];
+      switch-to-application-3 = [];
+      switch-to-application-4 = [];
     };
   };
 
