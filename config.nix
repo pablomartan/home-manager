@@ -61,6 +61,7 @@ in {
     freetube
     foliate
     gimp
+    inter-nerdfont
   ];
 
   dconf.settings = {
