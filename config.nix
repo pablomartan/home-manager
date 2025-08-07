@@ -31,21 +31,55 @@ in {
     gcr
     drawing
     nixgl.nixGLIntel
+    inter-nerdfont
   ];
 
   dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
+    };
+
     "org/gnome/desktop/peripherals/trackball" = {
       scroll-wheel-emulation-button = 9;
     };
+
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
       ];
     };
+
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "Alacritty";
       command = "alacritty";
       binding = "<Super>Return";
+    };
+
+    "org/gnome/desktop/wm/preferences" = {
+      num-workspaces = 4;
+    };
+
+    "org/gnome/desktop/wm/keybindings" = {
+      switch-to-workspace-1 = ["<Super>1"];
+      switch-to-workspace-2 = ["<Super>2"];
+      switch-to-workspace-3 = ["<Super>3"];
+      switch-to-workspace-4 = ["<Super>4"];
+      switch-to-workspace-5 = ["<Super>5"];
+      switch-to-workspace-6 = ["<Super>6"];
+      switch-to-workspace-7 = ["<Super>7"];
+      switch-to-workspace-8 = ["<Super>8"];
+    };
+
+    "org/gnome/shell/keybindings" = {
+      switch-to-application-1 = [];
+      switch-to-application-2 = [];
+      switch-to-application-3 = [];
+      switch-to-application-4 = [];
+      switch-to-application-5 = [];
+      switch-to-application-6 = [];
+      switch-to-application-7 = [];
+      switch-to-application-8 = [];
     };
   };
 
@@ -134,6 +168,7 @@ in {
         vim = "nvim";
         ls = "ls -l --color=auto";
         mux = "tmuxinator";
+        sudo = "sudo env PATH=$PATH";
       };
 
       shellGlobalAliases = {
@@ -196,11 +231,13 @@ in {
         {
           plugin = tmuxPlugins.catppuccin;
           extraConfig = ''
-            set -g @catppuccin_window_status_style "rounded"
-            set -g @catppuccin_status_modules_right "directory"
-            set -g @catppuccin_status_modules_left "session"
-            set -g @catppuccin_window_current_text "#{window_name}"
-            set -g @catppuccin_window_default_text "#{window_name}"
+            set -g @catppuccin_window_status_style "basic"
+            set -g @catppuccin_window_current_text "#W"
+            set -g @catppuccin_window_text "#W"
+            set -g status-right-length 100
+            set -g status-left-length 100
+            set -g status-left "#{E:@catppuccin_status_session}"
+            set -g status-right "#{E:@catppuccin_status_directory}"
           '';
         }
       ];
