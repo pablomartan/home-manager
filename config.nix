@@ -85,7 +85,7 @@ in {
       binding = "<Super>Return";
     };
 
-    "org/gnome/desktopwm/preferences" = {
+    "org/gnome/desktop/wm/preferences" = {
       num-workspaces = 4;
     };
 
