@@ -260,11 +260,13 @@ in {
         {
           plugin = tmuxPlugins.catppuccin;
           extraConfig = ''
-            set -g @catppuccin_window_status_style "rounded"
-            set -g @catppuccin_status_modules_right "directory"
-            set -g @catppuccin_status_modules_left "session"
-            set -g @catppuccin_window_current_text "#{window_name}"
-            set -g @catppuccin_window_default_text "#{window_name}"
+            set -g @catppuccin_window_status_style "basic"
+            set -g @catppuccin_window_current_text "#W"
+            set -g @catppuccin_window_text "#W"
+            set -g status-right-length 100
+            set -g status-left-length 100
+            set -g status-left "#{E:@catppuccin_status_session}"
+            set -g status-right "#{E:@catppuccin_status_directory}"
           '';
         }
       ];
