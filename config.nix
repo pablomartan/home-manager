@@ -62,6 +62,7 @@ in {
     foliate
     gimp
     inter-nerdfont
+    libreoffice
   ];
 
   dconf.settings = {
