@@ -32,6 +32,7 @@ in {
     drawing
     nixgl.nixGLIntel
     inter-nerdfont
+    libreoffice
   ];
 
   dconf.settings = {
