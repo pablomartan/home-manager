@@ -34,7 +34,9 @@ in {
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    nerd-fonts.jetbrains-mono
+    victor-mono
+    roboto-mono
+    nerd-fonts.fira-code
     neovim
     emacs
     git
@@ -51,10 +53,7 @@ in {
     wl-clipboard
     # for gpg pinentry
     gcr
-    gnome-shell-extensions
-    gnome-extension-manager
     firefox
-    iamb
     nixgl.nixGLIntel
     yt-dlp
     mpv
@@ -119,7 +118,6 @@ in {
 
   home.file = {
     ".config/alacritty/catppuccin/catppuccin-mocha.toml".source = ./alacritty/catppuccin/catppuccin-mocha.toml;
-    ".config/iamb/config.toml".source = ./iamb/config.toml;
   };
 
   home.sessionVariables = {
@@ -230,7 +228,7 @@ in {
         };
 
         font = {
-          normal = {family = "JetBrainsMono Nerd Font";};
+          normal = {family = "FiraCode Nerd Font";};
           size = 11;
         };
 
@@ -252,8 +250,6 @@ in {
       mouse = true;
 
       prefix = "C-Space";
-
-      keyMode = "vi";
 
       terminal = "xterm-256color";
 
@@ -388,11 +384,6 @@ in {
       enable = true;
 
       package = pkgs.pass-wayland;
-    };
-
-    gnome-shell = {
-      enable = true;
-      extensions = [{package = pkgs.gnomeExtensions.gsconnect;}];
     };
 
     bash.enable = true;
