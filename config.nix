@@ -195,7 +195,7 @@ in {
     };
 
     zsh = {
-      enable = true;
+      enable = false;
       autosuggestion.enable = true;
       shellAliases = {
         vim = "nvim";
@@ -386,7 +386,15 @@ in {
       package = pkgs.pass-wayland;
     };
 
-    bash.enable = true;
+    bash = {
+      enable = true;
+      shellAliases = {
+        vim = "nvim";
+        ls = "ls -l --color=auto";
+        mux = "tmuxinator";
+        sudo = "sudo env PATH=$PATH";
+      };
+    };
   };
 
   services = {
