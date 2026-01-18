@@ -40,7 +40,6 @@ in {
     neovim
     emacs
     git
-    # tmuxinator
     fd
     ripgrep
     qmk
@@ -60,8 +59,8 @@ in {
     freetube
     foliate
     gimp
-    inter-nerdfont
     libreoffice
+    lilypond
   ];
 
   dconf.settings = {
@@ -244,19 +243,12 @@ in {
 
     tmux = {
       enable = true;
-
       baseIndex = 1;
-
       mouse = true;
-
       prefix = "C-Space";
-
       terminal = "xterm-256color";
-
       tmuxinator.enable = true;
-
       sensibleOnTop = true;
-
       plugins = with pkgs; [
         tmuxPlugins.sensible
         {
