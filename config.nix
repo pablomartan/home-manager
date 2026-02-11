@@ -60,6 +60,7 @@ in {
     gimp
     libreoffice
     lilypond
+    ledger
   ];
 
   dconf.settings = {
