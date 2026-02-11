@@ -34,8 +34,7 @@ in {
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    victor-mono
-    roboto-mono
+    ibm-plex
     nerd-fonts.fira-code
     neovim
     emacs
