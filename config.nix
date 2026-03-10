@@ -34,8 +34,7 @@ in {
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    ibm-plex
-    nerd-fonts.fira-code
+    maple-mono.NF
     neovim
     emacs
     git
@@ -227,7 +226,7 @@ in {
         };
 
         font = {
-          normal = {family = "FiraCode Nerd Font";};
+          normal = {family = "Maple Mono NF";};
           size = 11;
         };
 
