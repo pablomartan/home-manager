@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   nixgl = pkgs.nixgl;
   nixGLWrap = pkg: let
     bins = "${pkg}/bin";
@@ -345,6 +349,8 @@ in {
         browserpass
         tridactyl-native
       ];
+
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
     };
 
     gpg.enable = true;
@@ -374,6 +380,10 @@ in {
       enable = true;
 
       package = pkgs.pass-wayland;
+
+      settings = {
+        PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
+      };
     };
 
     bash = {
@@ -416,9 +426,11 @@ in {
       };
 
       settings = {
-        theme = "system";
-
         model = "deepseek/deepseek-v4-flash";
+      };
+
+      tui = {
+        theme = "system";
       };
     };
   };
