@@ -45,7 +45,6 @@ in {
     pandoc
     bup
     ollama
-    nextcloud-client
     gnome-frog
     wl-clipboard
     # for gpg pinentry
@@ -384,6 +383,42 @@ in {
         ls = "ls -l --color=auto";
         mux = "tmuxinator";
         sudo = "sudo env PATH=$PATH";
+      };
+    };
+
+    opencode = {
+      enable = true;
+
+      agents = {
+        code-reviewer = ''
+          # Code Reviewer Agent
+
+          You are a senior software engineer specializing in code reviews.
+          Focus on code quality, security, and maintainability.
+
+          ## Guidelines
+            - Review for potential bugs and edge cases
+            - Check for security vulnerabilities
+            - Ensure code follows best practices
+            - Suggest improvements for readability and performance
+        '';
+      };
+
+      commands = {
+        caveman-slim = ''
+          Respond like smart caveman. Cut all filler, keep technical substance.
+          - Drop articles (a, an, the), filler (just, really, basically, actually).
+          - Drop pleasantries (sure, certainly, happy to).
+          - No hedging. Fragments fine. Short synonyms.
+          - Technical terms stay exact. Code blocks unchanged.
+          - Pattern: [thing] [action] [reason]. [next step].
+        '';
+      };
+
+      settings = {
+        theme = "system";
+
+        model = "deepseek/deepseek-v4-flash";
       };
     };
   };
