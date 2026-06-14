@@ -119,6 +119,34 @@ in {
 
   home.file = {
     ".config/alacritty/catppuccin/catppuccin-mocha.toml".source = ./alacritty/catppuccin/catppuccin-mocha.toml;
+    ".config/alacritty/catppuccin/catppuccin-latte.toml".source = ./alacritty/catppuccin/catppuccin-latte.toml;
+    ".local/bin/theme-toggle" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+        ALACRITTY_THEME_DIR="$HOME/.config/alacritty/catppuccin"
+        ALACRITTY_TARGET="$HOME/.config/alacritty/theme.toml"
+        TMUX_THEME_FILE="$HOME/.config/tmux/theme.tmux"
+
+        MODE=$(gsettings get org.gnome.desktop.interface color-scheme)
+        if [[ "$MODE" == *'dark'* ]]; then
+          echo 'general.import = ["'"$ALACRITTY_THEME_DIR"'/catppuccin-mocha.toml"]' > "$ALACRITTY_TARGET"
+          TMUX_FLAVOR="mocha"
+        else
+          echo 'general.import = ["'"$ALACRITTY_THEME_DIR"'/catppuccin-latte.toml"]' > "$ALACRITTY_TARGET"
+          TMUX_FLAVOR="latte"
+        fi
+
+        echo 'set -g @catppuccin_flavor "'"$TMUX_FLAVOR"'"' > "$TMUX_THEME_FILE"
+
+        # Unset thm variables so catppuccin plugin can re-apply them with new flavor (-o flag prevents override otherwise)
+        tmux show -g 2>/dev/null | awk -F' ' '/^@thm_/ {print $1}' | while read var; do
+          tmux set -gu "$var" 2>/dev/null
+        done
+
+        tmux set -g @catppuccin_flavor "$TMUX_FLAVOR" \; source "$HOME/.config/tmux/tmux.conf" 2>/dev/null || true
+      '';
+    };
   };
 
   home.sessionVariables = {
@@ -217,7 +245,7 @@ in {
 
       settings = {
         general.import = [
-          "~/.config/alacritty/catppuccin/catppuccin-mocha.toml"
+          "${config.home.homeDirectory}/.config/alacritty/theme.toml"
         ];
 
         window = {
@@ -256,6 +284,7 @@ in {
         {
           plugin = tmuxPlugins.catppuccin;
           extraConfig = ''
+            if-shell "[ -f ~/.config/tmux/theme.tmux ]" "source-file ~/.config/tmux/theme.tmux"
             set -g @catppuccin_window_status_style "basic"
             set -g @catppuccin_window_current_text "#W"
             set -g @catppuccin_window_text "#W"
@@ -441,6 +470,34 @@ in {
       enableZshIntegration = true;
       enableBashIntegration = true;
       pinentry.package = pkgs.pinentry-gnome3;
+    };
+  };
+
+  systemd.user.services.theme-toggle = {
+    Unit = {
+      Description = "Auto-toggle Alacritty and tmux theme based on GNOME color scheme";
+      After = ["graphical-session.target"];
+    };
+    Service = {
+      ExecStart = "${config.home.homeDirectory}/.local/bin/theme-toggle";
+      Restart = "on-failure";
+    };
+    Install = {
+      WantedBy = ["default.target"];
+    };
+  };
+
+  systemd.user.services.theme-monitor = {
+    Unit = {
+      Description = "Monitor GNOME color scheme and auto-toggle Alacritty/tmux theme";
+      After = ["graphical-session.target"];
+    };
+    Service = {
+      ExecStart = "${pkgs.bash}/bin/bash -c 'gsettings monitor org.gnome.desktop.interface color-scheme | while read; do ${config.home.homeDirectory}/.local/bin/theme-toggle; done'";
+      Restart = "always";
+    };
+    Install = {
+      WantedBy = ["default.target"];
     };
   };
 }
